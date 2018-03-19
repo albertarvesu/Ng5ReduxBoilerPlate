@@ -1,14 +1,16 @@
 
 # Ng5ReduxBoilerPlate
 
-This project shows you a basic Redux setup for an Angular Project. Generated using the latest version of Angular (version 5)
+This project shows you a basic Redux setup for an Angular Project. Generated using the latest version of Angular v5.
 
 ## Packages Used
 
 1. redux
-2. @angular-redux/store
-3. redux-observable
-4. redux-logger
+1. @angular-redux/store
+1. redux-observable
+1. redux-logger
+
+## Code Snippets
 
 ### Action
 Located in `/src/app/actions`, this does dispatch the action type and payload if available
@@ -75,30 +77,30 @@ export const posts = (state = initialState, action) => {
 ```
 ### Store Configuration
 ```
-    let enhancers = [];
+... // Removed for brevity
+let enhancers = [];
 
-    const rootEpic = combineEpics(
-      this.postsEpics.getPosts,
-	  ...
-    );
-    let middlewares = [
-      createEpicMiddleware(rootEpic),
-    ];
+const rootEpic = combineEpics(
+  this.postsEpics.getPosts,
+...
+);
+let middlewares = [
+  createEpicMiddleware(rootEpic),
+];
 
-    if (this.devTools.isEnabled()) {
-      enhancers = [...enhancers, devTools.enhancer()];
-      middlewares = [...middlewares, createLogger()];
-    }
-
-    this.store.configureStore(
-      rootReducer,
-      {} as IAppState,
-      middlewares,
-      enhancers
-    );
-  }
+if (this.devTools.isEnabled()) {
+  enhancers = [...enhancers, devTools.enhancer()];
+  middlewares = [...middlewares, createLogger()];
 }
+
+this.store.configureStore(
+  rootReducer,
+  {} as IAppState,
+  middlewares,
+  enhancers
+);
+... // Removed for brevity
 ```
 
-## Backend API
+## Backend API used in this project
 https://jsonplaceholder.typicode.com/

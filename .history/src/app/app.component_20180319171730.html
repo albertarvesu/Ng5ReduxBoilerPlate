@@ -1,0 +1,9 @@
+<mat-toolbar>
+  <button mat-button color="primary" (click)="openCategories()">Select Category</button>
+</mat-toolbar>
+
+<button (click)="onRetrievePosts()">Retrieve Posts</button>
+
+<pre>
+  {{posts | json}}
+</pre>
